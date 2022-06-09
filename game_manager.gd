@@ -1,21 +1,40 @@
 extends Node
 
 
-var score := 0
 var card_back: Resource = preload("res://assets/cards/cardBack_red2.png")
 var deck: Array[Card] = Array()
 var card_first: Card
 var card_second: Card
 var match_timer := Timer.new()
 var flip_timer := Timer.new()
+var seconds_timer := Timer.new()
 
-@onready var game = $/root/Game as Game
+var score := 0
+var seconds := 0
+var moves := 0
+var goal := 26
+
+var score_label: Label
+var seconds_label: Label
+var moves_label: Label
+var reset_button: TextureButton
+
+var pop_up: PackedScene = load("res://pop_up.tscn")
+
+@onready var tree := get_tree()
+@onready var game := $/root/Game as Game
 
 
 func _ready() -> void:
+	await game.ready
+	
 	_fill_deck()
 	_deal_deck()
 	_setup_timers()
+	_setup_hud()
+	
+	var splash = pop_up.instantiate()
+	game.add_child(splash)
 
 
 func choose_card(card: Card) -> void:
@@ -27,9 +46,29 @@ func choose_card(card: Card) -> void:
 		card_second = card
 		card_second.flip()
 		card_second.disabled = true
+		moves += 1
+		moves_label.text = str(moves)
 		_check_cards()
 	else:
 		pass
+
+
+func reset_game() -> void:
+	tree.paused = false
+	
+	for i in deck.size():
+		deck[i].queue_free()
+	
+	deck.clear()
+	score = 0
+	score_label.text = "0"
+	seconds = 0
+	seconds_label.text = "0"
+	moves = 0
+	moves_label.text = "0"
+	
+	_fill_deck()
+	_deal_deck()
 
 
 func _setup_timers() -> void:
@@ -40,6 +79,24 @@ func _setup_timers() -> void:
 	flip_timer.timeout.connect(self._turn_over_cards)
 	flip_timer.one_shot = true
 	add_child(flip_timer)
+	
+	seconds_timer.timeout.connect(self._count_seconds)
+	seconds_timer.autostart = true
+	add_child(seconds_timer)
+
+
+func _setup_hud() -> void:
+	score_label = game.hud.get_node("Panel/Sections/ScoreSection/Value")
+	score_label.text = str(score)
+	
+	seconds_label = game.hud.get_node("Panel/Sections/TimerSection/Value")
+	seconds_label.text = str(seconds)
+	
+	moves_label = game.hud.get_node("Panel/Sections/MovesSection/Value")
+	moves_label.text = str(moves)
+	
+	reset_button = game.hud.get_node("Panel/Sections/ButtonsSection/ResetButton")
+	reset_button.pressed.connect(self.reset_game)
 
 
 func _check_cards() -> void:
@@ -57,7 +114,7 @@ func _fill_deck() -> void:
 
 
 func _deal_deck() -> void:
-	await game.ready
+	deck.shuffle()
 	for i in deck.size():
 		game.card_container.add_child(deck[i])
 
@@ -73,8 +130,17 @@ func _turn_over_cards() -> void:
 
 func _match_cards_and_score() -> void:
 	score += 1
-	print(score)
+	score_label.text = str(score)
 	card_first.modulate = Color(0.6, 0.6, 0.6, 0.5)
 	card_second.modulate = Color(0.6, 0.6, 0.6, 0.5)
 	card_first = null
 	card_second = null
+	
+	if score == goal:
+		var win_screen := pop_up.instantiate()
+		game.add_child(win_screen)
+		win_screen.win(goal, seconds, moves)
+
+func _count_seconds() -> void:
+	seconds += 1
+	seconds_label.text = str(seconds)

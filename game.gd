@@ -3,6 +3,7 @@ class_name Game
 
 
 @onready var card_container: GridContainer = $MarginContainer/GridContainer
+@onready var hud: Control = $Hud
 
 
 func _ready() -> void:
