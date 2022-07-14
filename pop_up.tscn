@@ -6,16 +6,16 @@
 [ext_resource type="FontData" uid="uid://dsh77id4b43fd" path="res://assets/fonts/Nunito-Bold.ttf" id="3_wvsue"]
 
 [sub_resource type="Font" id="Font_5l555"]
-data/0 = ExtResource( "3_wvsue" )
+data/0 = ExtResource("3_wvsue")
 
 [sub_resource type="Font" id="Font_x3vxn"]
-data/0 = ExtResource( "3_wvsue" )
+data/0 = ExtResource("3_wvsue")
 
 [node name="PopUp" type="Control"]
 process_mode = 3
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( "1_auo8h" )
+script = ExtResource("1_auo8h")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -27,33 +27,35 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Panel" type="Panel" parent="Container"]
-minimum_size = Vector2(900, 600)
-offset_left = 190.0
-offset_top = 100.0
-offset_right = 1090.0
-offset_bottom = 700.0
-theme = ExtResource( "1_wf71f" )
+custom_minimum_size = Vector2(740, 480)
+offset_left = 270.0
+offset_top = 160.0
+offset_right = 1010.0
+offset_bottom = 640.0
+theme = ExtResource("1_wf71f")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Container/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_layout_mode = 1
 
 [node name="TitleTexture" type="TextureRect" parent="Container/Panel/VBoxContainer"]
 unique_name_in_owner = true
-offset_right = 900.0
-offset_bottom = 452.0
+offset_right = 740.0
+offset_bottom = 371.0
 size_flags_vertical = 3
-texture = ExtResource( "2_cmx3i" )
+texture = ExtResource("2_cmx3i")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="TitleLabel" type="Label" parent="Container/Panel/VBoxContainer"]
 unique_name_in_owner = true
-minimum_size = Vector2(0, 60)
-offset_top = 456.0
-offset_right = 900.0
-offset_bottom = 516.0
-theme_override_fonts/font = SubResource( "Font_5l555" )
+offset_top = 375.0
+offset_right = 740.0
+offset_bottom = 412.0
+theme_override_fonts/font = SubResource("Font_5l555")
 theme_override_font_sizes/font_size = 24
 text = "Flip over matching cards to earn a point! Find all 26 pairs to win!"
 horizontal_alignment = 1
@@ -61,13 +63,12 @@ vertical_alignment = 1
 
 [node name="PlayButton" type="Button" parent="Container/Panel/VBoxContainer"]
 unique_name_in_owner = true
-minimum_size = Vector2(0, 80)
-offset_top = 520.0
-offset_right = 900.0
-offset_bottom = 600.0
+offset_top = 416.0
+offset_right = 740.0
+offset_bottom = 480.0
 theme_override_colors/font_color = Color(0.156863, 0.156863, 0.156863, 1)
 theme_override_colors/font_hover_color = Color(0.388235, 0.737255, 0, 1)
-theme_override_fonts/font = SubResource( "Font_x3vxn" )
+theme_override_fonts/font = SubResource("Font_x3vxn")
 theme_override_font_sizes/font_size = 40
 text = "Play Now"
 flat = true

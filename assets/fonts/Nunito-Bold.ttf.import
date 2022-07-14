@@ -12,6 +12,7 @@ dest_files=["res://.godot/imported/Nunito-Bold.ttf-e301dd6fbe168d4b494ffe849f591
 
 [params]
 
+face_index=0
 antialiased=true
 generate_mipmaps=false
 multichannel_signed_distance_field=false

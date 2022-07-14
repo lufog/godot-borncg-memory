@@ -3,7 +3,7 @@
 [ext_resource type="FontData" uid="uid://mbwclcspv8gg" path="res://assets/fonts/Nunito-Regular.ttf" id="1_elcw2"]
 
 [sub_resource type="Font" id="Font_eqh7j"]
-data/0 = ExtResource( "1_elcw2" )
+data/0 = ExtResource("1_elcw2")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ql02r"]
 corner_radius_top_left = 20
@@ -16,5 +16,5 @@ shadow_offset = Vector2(5, 5)
 
 [resource]
 Label/colors/font_color = Color(0.129412, 0.129412, 0.129412, 1)
-Label/fonts/font = SubResource( "Font_eqh7j" )
-Panel/styles/panel = SubResource( "StyleBoxFlat_ql02r" )
+Label/fonts/font = SubResource("Font_eqh7j")
+Panel/styles/panel = SubResource("StyleBoxFlat_ql02r")
