@@ -19,7 +19,7 @@ var seconds_label: Label
 var moves_label: Label
 var reset_button: TextureButton
 
-var pop_up: PackedScene = load("res://pop_up.tscn")
+var pop_up: PackedScene = load("res://pop_up/pop_up.tscn")
 
 @onready var tree := get_tree()
 @onready var game := $/root/Game as Game

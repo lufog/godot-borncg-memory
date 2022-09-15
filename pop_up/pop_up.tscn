@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dddslepyj6ae5"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://pop_up.gd" id="1_auo8h"]
+[ext_resource type="Script" path="res://pop_up/pop_up.gd" id="1_auo8h"]
 [ext_resource type="Theme" uid="uid://dg5i3rnmmuter" path="res://theme.tres" id="1_wf71f"]
 [ext_resource type="Texture2D" uid="uid://damoq1wv7ojf" path="res://assets/ui/title.png" id="2_cmx3i"]
 
@@ -10,24 +10,27 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_auo8h")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 0.729412)
 
 [node name="Container" type="CenterContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="Container"]
-custom_minimum_size = Vector2(740, 480)
-layout_mode = 2
+custom_minimum_size = Vector2i(740, 480)
 offset_left = 270.0
 offset_top = 160.0
 offset_right = 1010.0
@@ -35,7 +38,6 @@ offset_bottom = 640.0
 theme = ExtResource("1_wf71f")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Container/Panel"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -45,7 +47,6 @@ metadata/_edit_layout_mode = 1
 
 [node name="TitleTexture" type="TextureRect" parent="Container/Panel/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
 offset_right = 740.0
 offset_bottom = 371.0
 size_flags_vertical = 3
@@ -55,7 +56,6 @@ stretch_mode = 5
 
 [node name="TitleLabel" type="Label" parent="Container/Panel/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
 offset_top = 375.0
 offset_right = 740.0
 offset_bottom = 412.0
@@ -66,7 +66,6 @@ vertical_alignment = 1
 
 [node name="PlayButton" type="Button" parent="Container/Panel/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
 offset_top = 416.0
 offset_right = 740.0
 offset_bottom = 480.0

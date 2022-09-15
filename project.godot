@@ -17,7 +17,7 @@ _global_script_classes=[{
 "base": "Control",
 "class": &"Game",
 "language": &"GDScript",
-"path": "res://game.gd"
+"path": "res://game/game.gd"
 }]
 _global_script_class_icons={
 "Card": "",
@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Memory"
-run/main_scene="res://game.tscn"
+run/main_scene="res://game/game.tscn"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
 config/icon="res://icon.svg"
 
