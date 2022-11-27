@@ -1,7 +1,7 @@
 extends Node
 
 
-var card_back: Resource = preload("res://assets/cards/cardBack_red2.png")
+var card_back: Resource = preload("res://game/textures/cardBack_red2.png")
 var deck: Array[Card] = Array()
 var card_first: Card
 var card_second: Card
@@ -19,7 +19,7 @@ var seconds_label: Label
 var moves_label: Label
 var reset_button: TextureButton
 
-var pop_up: PackedScene = load("res://pop_up/pop_up.tscn")
+var pop_up: PackedScene = load("res://ui/pop_up/pop_up.tscn")
 
 @onready var tree := get_tree()
 @onready var game := $/root/Game as Game

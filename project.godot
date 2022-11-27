@@ -12,7 +12,7 @@ _global_script_classes=[{
 "base": "TextureButton",
 "class": &"Card",
 "language": &"GDScript",
-"path": "res://card.gd"
+"path": "res://game/card.gd"
 }, {
 "base": "Control",
 "class": &"Game",
@@ -28,7 +28,7 @@ _global_script_class_icons={
 
 config/name="Memory"
 run/main_scene="res://game/game.tscn"
-config/features=PackedStringArray("4.0", "Vulkan Clustered")
+config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"
 
 [autoload]

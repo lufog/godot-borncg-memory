@@ -1,6 +1,6 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dg5i3rnmmuter"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://vipqth43x7fk"]
 
-[ext_resource type="FontFile" uid="uid://mbwclcspv8gg" path="res://assets/fonts/Nunito-Regular.ttf" id="1_elcw2"]
+[ext_resource type="FontFile" uid="uid://mbwclcspv8gg" path="res://ui/assets/fonts/Nunito-Regular.ttf" id="1_l601p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ql02r"]
 corner_radius_top_left = 20
@@ -12,7 +12,8 @@ shadow_size = 1
 shadow_offset = Vector2(5, 5)
 
 [resource]
-default_font = ExtResource("1_elcw2")
+default_font = ExtResource("1_l601p")
+default_font_size = 24
 Label/colors/font_color = Color(0.129412, 0.129412, 0.129412, 1)
-Label/fonts/font = ExtResource("1_elcw2")
+Label/fonts/font = ExtResource("1_l601p")
 Panel/styles/panel = SubResource("StyleBoxFlat_ql02r")
